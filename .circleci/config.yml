@@ -19,6 +19,9 @@ jobs:
 
     steps:
       - checkout
+      - run:
+          name: Update npm
+          command: npm install
 
       # Download and cache dependencies
       - restore_cache:
