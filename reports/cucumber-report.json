@@ -1,0 +1,149 @@
+[
+  {
+    "description": "  As an internet user\n  In order to find out more about the itunes vote cards app\n  I want to be able to search for information about the itunes vote cards app",
+    "elements": [
+      {
+        "id": "searching-for-vote-cards-app;login-to-the-usabilla-environment",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "Login to the Usabilla environment",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "Login to the Usabilla environment",
+            "result": {
+              "status": "passed",
+              "duration": 5434555825
+            },
+            "line": 8,
+            "match": {
+              "location": "E:\\test-tasks\\selenium-cucumber-js\\step-definitions\\google-search-steps.js:3"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "Navigate to the 'Usabilla for Websites' button creation page",
+            "result": {
+              "status": "passed",
+              "duration": 3616971080
+            },
+            "line": 9,
+            "match": {
+              "location": "E:\\test-tasks\\selenium-cucumber-js\\step-definitions\\google-search-steps.js:12"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "Feedback button: Create a new button and assign a name",
+            "result": {
+              "status": "passed",
+              "duration": 1112175549
+            },
+            "line": 10,
+            "match": {
+              "location": "E:\\test-tasks\\selenium-cucumber-js\\step-definitions\\google-search-steps.js:21"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "Button advanced setting: Turn on full-page screenshot generation for the newly created button",
+            "result": {
+              "status": "passed",
+              "duration": 1216605177
+            },
+            "line": 11,
+            "match": {
+              "location": "E:\\test-tasks\\selenium-cucumber-js\\step-definitions\\google-search-steps.js:26"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "Button advanced setting: Set up Auto labeling for keyword 'test keyword contains' with the label 'testing contains'. Set operator to Contain.",
+            "result": {
+              "status": "passed",
+              "duration": 540232
+            },
+            "line": 12,
+            "match": {
+              "location": "E:\\test-tasks\\selenium-cucumber-js\\step-definitions\\google-search-steps.js:31"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "Feedback button: Save the button",
+            "result": {
+              "status": "passed",
+              "duration": 5273626939
+            },
+            "line": 13,
+            "match": {
+              "location": "E:\\test-tasks\\selenium-cucumber-js\\step-definitions\\google-search-steps.js:36"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "Feedback button: Provide feedback through the feedback button and its form which were created in the steps 3 through 6.",
+            "result": {
+              "status": "passed",
+              "duration": 1478876
+            },
+            "line": 14,
+            "match": {
+              "location": "E:\\test-tasks\\selenium-cucumber-js\\step-definitions\\google-search-steps.js:41"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "Feedback page: Load the page which lists all the feedback items",
+            "result": {
+              "status": "passed",
+              "duration": 7542627959
+            },
+            "line": 15,
+            "match": {
+              "location": "E:\\test-tasks\\selenium-cucumber-js\\step-definitions\\google-search-steps.js:46"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After ",
+            "result": {
+              "status": "passed",
+              "duration": 115547640
+            },
+            "hidden": true,
+            "match": {
+              "location": "E:\\test-tasks\\selenium-cucumber-js\\runtime\\world.js:221"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@search",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "searching-for-vote-cards-app",
+    "keyword": "Feature",
+    "line": 2,
+    "name": "Searching for vote cards app",
+    "tags": [
+      {
+        "name": "@search",
+        "line": 1
+      }
+    ],
+    "uri": "E:/test-tasks/selenium-cucumber-js/features/google-search.feature"
+  }
+]

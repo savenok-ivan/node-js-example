@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="searching-for-vote-cards-app;login-to-the-usabilla-environment" tests="8" failures="0" skipped="0">
+        <properties>
+            <property name="@search" value="true">
+            </property>
+            <property name="URI" value="E:/test-tasks/selenium-cucumber-js/features/google-search.feature">
+            </property>
+        </properties>
+        <testcase name="When Login to the Usabilla environment" classname="searching-for-vote-cards-app;login-to-the-usabilla-environment" time="5.434555825">
+        </testcase>
+        <testcase name="Then Navigate to the &apos;Usabilla for Websites&apos; button creation page" classname="searching-for-vote-cards-app;login-to-the-usabilla-environment" time="3.61697108">
+        </testcase>
+        <testcase name="Then Feedback button: Create a new button and assign a name" classname="searching-for-vote-cards-app;login-to-the-usabilla-environment" time="1.112175549">
+        </testcase>
+        <testcase name="Then Button advanced setting: Turn on full-page screenshot generation for the newly created button" classname="searching-for-vote-cards-app;login-to-the-usabilla-environment" time="1.216605177">
+        </testcase>
+        <testcase name="Then Button advanced setting: Set up Auto labeling for keyword &apos;test keyword contains&apos; with the label &apos;testing contains&apos;. Set operator to Contain." classname="searching-for-vote-cards-app;login-to-the-usabilla-environment" time="0.000540232">
+        </testcase>
+        <testcase name="Then Feedback button: Save the button" classname="searching-for-vote-cards-app;login-to-the-usabilla-environment" time="5.273626939">
+        </testcase>
+        <testcase name="Then Feedback button: Provide feedback through the feedback button and its form which were created in the steps 3 through 6." classname="searching-for-vote-cards-app;login-to-the-usabilla-environment" time="0.001478876">
+        </testcase>
+        <testcase name="Then Feedback page: Load the page which lists all the feedback items" classname="searching-for-vote-cards-app;login-to-the-usabilla-environment" time="7.542627959">
+        </testcase>
+    </testsuite>
+</testsuites>
