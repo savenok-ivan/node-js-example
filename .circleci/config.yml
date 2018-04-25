@@ -21,7 +21,7 @@ jobs:
       - checkout
       - run:
           name: install chrome driver
-          command: npm install -g chromedriver
+          command: sudo npm install -g chromedriver
       - run:
           name: update-npm
           command: npm install
