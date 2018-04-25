@@ -8,7 +8,7 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:7.10
-      - image: selenium/standalone-chrome:3.11.0
+      - image: drazisil/node-selenium:0.1.30
       
       # Specify service dependencies here if necessary  
       # CircleCI maintains a library of pre-built images
@@ -34,19 +34,12 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
           
       - run:
-          name: install chrome driver
-          command: sudo npm install -g chromedriver
-          
-      - run:
-          name: Start Selenium
-          command: start_selenium.sh
-          background: true
-          
-      - run:
-          name: update-npm
+          name: install-npm
           command: npm install
         
       # run tests!
-      - run: yarn test
+      - run: 
+          name: run tests
+          command: node index.js
 
 
