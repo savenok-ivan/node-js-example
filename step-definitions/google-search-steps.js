@@ -49,7 +49,22 @@ module.exports = function () {
             console.log('yes');
         });
     });
-    
-    
-    
+
+    this.When("Test 1", function () {
+        driver.sleep(2000);
+        console.log(" ------- 1 -------")
+    });
+
+    this.Then("Test 22", function () {
+        driver.sleep(2000);
+        console.log(" ------- 22 -------")
+    });
+
+    this.Then("Test 333", function () {
+        driver.sleep(2000);
+        console.log(" ------- 333 -------")
+    });
+
+
+
 };
