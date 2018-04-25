@@ -34,21 +34,13 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
           
       - run:
+          name: install chrome driver
+          command: sudo npm install -g chromedriver
+          
+      - run:
           name: Start Selenium
           command: start_selenium.sh
           background: true
-
-      - run:
-          name: Test geckodriver
-          command: node test_geckodriver.js
-
-      - run:
-          name: Tech chromedriver
-          command: node test_chromedriver.js
-          
-      - run:
-          name: install chrome driver
-          command: sudo npm install -g chromedriver
           
       - run:
           name: update-npm
