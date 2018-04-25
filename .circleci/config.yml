@@ -27,10 +27,6 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
- dependencies:
-      - wget https://selenium-release.storage.googleapis.com/2.44/selenium-server-standalone-2.44.0.jar
-      - java -jar selenium-server-standalone-2.44.0.jar:
-            background: true
             
       - run: yarn install
 
