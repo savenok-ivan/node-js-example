@@ -11,6 +11,11 @@ jobs:
       - image: selenium/standalone-chrome:3.11.0
       
       # Specify service dependencies here if necessary
+    dependencies:
+    post:
+      - wget https://selenium-release.storage.googleapis.com/2.44/selenium-server-standalone-2.44.0.jar
+      - java -jar selenium-server-standalone-2.44.0.jar:
+            background: true  
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
