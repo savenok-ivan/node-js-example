@@ -20,11 +20,12 @@ jobs:
     steps:
       - checkout
       - run:
+          name: install chrome driver
+          command: npm install -g chromedriver
+      - run:
           name: update-npm
           command: npm install
-      - run:
-          name: run tests
-          command: node index.js
+     
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -33,14 +34,14 @@ jobs:
           - v1-dependencies-
 
             
-      #- run: yarn install
+      - run: yarn install
 
-      #- save_cache:
-      #    paths:
-      #      - node_modules
-      #    key: v1-dependencies-{{ checksum "package.json" }}
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
         
-      # run tests!
-      #- run: yarn test
+       run tests!
+      - run: yarn test
 
 
