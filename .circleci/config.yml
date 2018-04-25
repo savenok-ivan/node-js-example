@@ -1,39 +1,17 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
 version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
-      - image: circleci/node:7.10
-      - image: selenium/standalone-chrome:3.11.0
+      - image: circleci/node:6.11.2-browsers
       
-      # Specify service dependencies here if necessary  
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
-
-    working_directory: ~/repo
-            
     steps:
       - checkout
-      - run:
-          name: install chrome driver
-          command: sudo npm install -g chromedriver
-      - run:
-          name: update-npm
-          command: npm install
-     
-      # Download and cache dependencies
+
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-            
       - run: yarn install
 
       - save_cache:
@@ -41,7 +19,28 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
         
-      # run tests!
-      - run: yarn test
+      - run:
+          name: Download Selenium and geckodriver
+          command: |
+            curl -O http://selenium-release.storage.googleapis.com/3.0/selenium-server-standalone-3.0.1.jar
+            curl -L https://github.com/mozilla/geckodriver/releases/download/v0.11.1/geckodriver-v0.11.1-linux64.tar.gz | tar xz
+            chmod +x geckodriver
+      - run:
+          name: Start Selenium
+          command: |
+            java -jar -Dwebdriver.gecko.driver=./geckodriver selenium-server-standalone-3.0.1.jar -log selenium.log
+          background: true
+      
+      - run:
+          name: Test geckodriver
+          command: node test_geckodriver.js
 
+      - run:
+          name: Tech chromedriver
+          command: node test_chromedriver.js
 
+      - run: mv selenium.log selenium_log.txt
+
+      - store_artifacts:
+          path: selenium_log.txt
+          destination: selenium
