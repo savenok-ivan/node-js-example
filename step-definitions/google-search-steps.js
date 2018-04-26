@@ -1,4 +1,6 @@
 module.exports = function () {
+    
+    this.setDefaultTimeout(60*1000);
 
     this.When("Login to the Usabilla environment", function () {
 
