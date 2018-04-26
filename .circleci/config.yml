@@ -8,7 +8,7 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:7.10
-      - image: drazisil/node-selenium:0.1.30
+      - image: selenium/standalone-chrome:3.11.0
       
       # Specify service dependencies here if necessary  
       # CircleCI maintains a library of pre-built images
@@ -34,6 +34,19 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
           
       - run:
+          name: create docker network
+          command: docker network create grid
+     
+      - run:
+          name: install selenium-hub
+          command: docker run -d --rm -p 4444:4444 --net grid --name selenium-hub selenium/hub:3.11.0-dysprosium
+          
+      - run:
+          name: install selenium-node
+          command: docker run -d --rm --net grid -e HUB_HOST=selenium-hub -v /dev/shm:/dev/shm selenium/node-chrome:3.11.0-dysprosium
+        
+      
+      - run:
           name: install-npm
           command: npm install
         
@@ -41,5 +54,18 @@ jobs:
       - run: 
           name: run tests
           command: node index.js
+          
+      - run: 
+          name: kill all docker images
+          command: docker kill $(docker ps -a -q) 
+          
+      - run: 
+          name: remove all unused networks
+          command: docker network prune
+          
+      - run: 
+          name: removes the grid network
+          command: docker network rm grid
+          
 
 
