@@ -14,9 +14,9 @@ module.exports = function() {
         javascriptEnabled: true,
         acceptSslCerts: true,
         'webdriver.firefox.bin': firefox.path
-    }).build();
+    }).usingServer('http://localhost:4444/wd/hub').build();
 
-    driver.manage().window().maximize();
+    driver.manage().window();
 
     return driver;
 };
