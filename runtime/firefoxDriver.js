@@ -13,6 +13,9 @@ module.exports = function() {
         browserName: 'firefox',
         javascriptEnabled: true,
         acceptSslCerts: true,
+        firefoxOptions: {
+            args: ['headless']
+        },
         'webdriver.firefox.bin': firefox.path
     }).usingServer('http://localhost:4444/wd/hub').build();
 
