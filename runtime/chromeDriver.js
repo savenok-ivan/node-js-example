@@ -10,7 +10,7 @@ var selenium = require('selenium-webdriver');
 module.exports = function() {
 
     var driver = new selenium.Builder().withCapabilities({
-        browserName: 'chrome',
+        browserName: 'firefox',
         javascriptEnabled: true,
         acceptSslCerts: true,
         chromeOptions: {
