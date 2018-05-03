@@ -8,7 +8,6 @@ module.exports = function () {
 
     this.After(function () {
         console.log(' ----------- After ----------- ');
-        driver.quit();
     });
 
     this.Given(/^Login to the Usabilla \("([^"]*)"\) \(login: "([^"]*)", password: "([^"]*)"\)\.$/, function (url, login, password) {
