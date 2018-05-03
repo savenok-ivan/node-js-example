@@ -8,7 +8,7 @@ Feature: Test automation scenarios of Usabilla
     And Turn on full-page screenshot generation for the newly created button.
     And Set up Auto labeling for keyword "<keyword>" with the label "<label>". Set operator to "<operator>".
     And Save the button.
-    And Provide feedback through the feedback button and its form which were created (email: "<email>").
+    #And Provide feedback through the feedback button and its form which were created (email: "<email>").
 
     Examples:
       | keyword               | label            | operator | email                            |
