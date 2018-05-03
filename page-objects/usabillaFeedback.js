@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 module.exports = {
 
     labelFeedback: '',
@@ -32,12 +31,9 @@ module.exports = {
         driver.sleep(shared.constantsData.oneSecondTimeOut);
         driver.findElement(page.usabillaFeedback.elements.feedbackButtonContainer).click();
         driver.sleep(shared.constantsData.threeSecondsTimeOut);
-        driver.sleep(shared.constantsData.threeSecondsTimeOut);
-        driver.switchTo().defaultContent();
-        driver.sleep(shared.constantsData.threeSecondsTimeOut);
         driver.switchTo().frame(driver.findElement(page.usabillaFeedback.elements.frameFeedback));
         driver.findElement(page.usabillaFeedback.elements.genericFeedbackContainer).click();
-        driver.sleep(shared.constantsData.twoSecondsTimeOut);   
+        driver.sleep(shared.constantsData.twoSecondsTimeOut);
         driver.switchTo().frame(driver.findElement(page.usabillaFeedback.elements.frameFeedback));
         driver.findElement(page.usabillaFeedback.elements.radioButtonRatingFive).click();
         driver.findElement(page.usabillaFeedback.elements.textAreaFeedback).sendKeys(commentFeedbackText);
@@ -47,8 +43,6 @@ module.exports = {
         driver.sleep(shared.constantsData.threeSecondsTimeOut);
         driver.findElement(page.usabillaFeedback.elements.continueBrowsingButton).click();
         driver.switchTo().defaultContent();
-        console.log(' ----------- Done - Set up Auto labeling for keyword ----------- ');
-
     },
 
     checkSubmittedFeedbackIitemIsPresent: function () {
@@ -57,7 +51,7 @@ module.exports = {
         driver.findElement(page.usabillaFeedback.elements.resetFeedback).click();
         driver.sleep(shared.constantsData.fourSecondsTimeOut);
         driver.findElement(page.usabillaFeedback.elements.commentLastFeedback).getText().then(function (actualFeedbackName) {
-            //assert.equal(actualFeedbackName, commentFeedbackText, 'actualFeedbackName does not match expected');
+            assert.equal(actualFeedbackName, commentFeedbackText, 'actualFeedbackName does not match expected');
         });
     },
 
@@ -79,11 +73,11 @@ module.exports = {
         driver.sleep(shared.constantsData.twoSecondsTimeOut);
         driver.findElement(page.usabillaFeedback.elements.selectLabelForFeedback).click();
         driver.findElement(page.usabillaFeedback.elements.firstItemLabelFromSelect).click();
-        driver.findElement(page.usabillaFeedback.elements.secondItemLabelFromSelect).click();
+        //driver.findElement(page.usabillaFeedback.elements.secondItemLabelFromSelect).click();
         driver.navigate().refresh();
         driver.sleep(shared.constantsData.twoSecondsTimeOut);
         return driver.findElement(page.usabillaFeedback.elements.buttonCountLabelsForFeedback).getText().then(function (text) {
-            //return assert.equal(text, '2 labels', 'Labels is not present.');
+            return assert.equal(text, '1 label', 'Labels is not present.');
         });
     },
 
