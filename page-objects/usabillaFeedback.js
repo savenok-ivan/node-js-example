@@ -42,6 +42,7 @@ module.exports = {
         driver.findElement(page.usabillaFeedback.elements.emailFeedback).sendKeys(email);
         driver.findElement(page.usabillaFeedback.elements.submitFeedback).click();
         driver.sleep(shared.constantsData.threeSecondsTimeOut);
+        driver.sleep(shared.constantsData.threeSecondsTimeOut);
         driver.findElement(page.usabillaFeedback.elements.continueBrowsingButton).click();
         driver.switchTo().defaultContent();
     },
