@@ -45,7 +45,6 @@ module.exports = {
         driver.sleep(shared.constantsData.threeSecondsTimeOut);
         driver.findElement(page.usabillaFeedback.elements.continueBrowsingButton).click();
         driver.switchTo().defaultContent();*/
-        driver.quit();
         console.log(' ----------- Done - Set up Auto labeling for keyword ----------- ');
 
     },
