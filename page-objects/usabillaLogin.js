@@ -1,16 +1,13 @@
 module.exports = {
     elements: {
-        login: by.name('_username'),
-        password: by.name('_password'),
+        login: by.css('#username'),
+        password: by.css('#password'),
         submit: by.css('.bttn')
     },
 
-    signIn: function () {
-        var loginVal = shared["test-data"].username;
-        var passwordVal = shared["test-data"].password;
-
-        driver.findElement(page.usabillaLogin.elements.login).sendKeys(loginVal);
-        driver.findElement(page.usabillaLogin.elements.password).sendKeys(passwordVal);
+    signIn: function (login, password) {
+        driver.findElement(page.usabillaLogin.elements.login).sendKeys(login);
+        driver.findElement(page.usabillaLogin.elements.password).sendKeys(password);
         driver.findElement(page.usabillaLogin.elements.submit).click();
     }
 };
