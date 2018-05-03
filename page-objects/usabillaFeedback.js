@@ -35,7 +35,7 @@ module.exports = {
         driver.switchTo().frame(driver.findElement(page.usabillaFeedback.elements.frameFeedback));
         driver.findElement(page.usabillaFeedback.elements.genericFeedbackContainer).click();
         driver.sleep(shared.constantsData.twoSecondsTimeOut);
-        driver.switchTo().frame(driver.findElement(page.usabillaFeedback.elements.frameFeedback));
+        driver.switchTo().window(driver.findElement(page.usabillaFeedback.elements.frameFeedback));
         driver.findElement(page.usabillaFeedback.elements.radioButtonRatingFive).click();
         driver.findElement(page.usabillaFeedback.elements.textAreaFeedback).sendKeys(commentFeedbackText);
         driver.findElement(page.usabillaFeedback.elements.radioButtonRecommendRatingTen).click();
