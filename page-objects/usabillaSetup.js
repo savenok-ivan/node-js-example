@@ -15,6 +15,7 @@ module.exports = {
     },
 
     createNewButton: function () {
+        driver.sleep(shared.constantsData.oneSecondTimeOut);
         var nameButton = shared.testData.nameButton;
         driver.findElement(page.usabillaSetup.elements.nameButtonInput).sendKeys(nameButton);
     },
