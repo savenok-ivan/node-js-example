@@ -1,94 +1,132 @@
+/* eslint-disable no-undef */
 module.exports = {
 
     labelFeedback: '',
-    
     elements: {
-        feedbackButtonContainer: by.className('usabilla_live_button_container'),
-        genericFeedbackContainer: by.css('.choice.choice_general'),
-        frameSelectFeedback: by.css('body > div.usabilla_scroller_area > iframe'),
-        frameFeedback: by.css('body > div.usabilla_scroller_area > div > iframe'),
-        radioButtonRatingFive: by.className('rating_5'),
-        textAreaFeedback: by.name('feedback'),
-        radioButtonRecommendRatingTen: by.css('#usabilla-metadata-container > div > form > span > div.element_control.radio_input > fieldset > div > label:nth-child(11)'),
-        emailFeedback: by.name('email'),
-        submitFeedback: by.css("#usabilla-metadata-container > div > form > div.bottom > button"),
-        continueBrowsingButton: by.className("continue"),
-        commentLastFeedback: by.css("list-container > div > list-item:nth-child(1) > div a.feedback-item__comment-text"),
-        resetFeedback: by.css(".filter__reset"),
-        feedbackItemContainer: by.css("list-container > div > list-item:nth-child(1)"),
-        selectLabelForFeedback: by.css(".sb-dropdown__button.sb-form-control__input"),
-        firstItemLabelFromSelect: by.css('.sb-dropdown__menu > li:nth-child(2)'),
-        secondItemLabelFromSelect: by.css('.sb-dropdown__menu > li:nth-child(3)'),
-        secondItemLabelTextFromSelect: by.css('.sb-dropdown__menu > li:nth-child(3) .sb-checkbox__text'),
-        inputDateContainer: by.css('body > div:nth-child(3) > ui-main-frame > div > div > div > ui-view > ui-view > div > web-feedback-list > web-feedback-filters > ui-filter > div > div > ng-transclude > ui-filter-control.web-feedback-filters__date > div > div.filter__item-control'),
-        selectedFirstDateContainer: by.css('.pika-lendar .pika-table tr:nth-child(2) > td:nth-child(2)'),
-        selectedSecondDateContainer: by.css('.pika-lendar .pika-table tr:nth-child(2) > td:nth-child(6)'),
-        inputFilterOnComment: by.css('body > div:nth-child(3) > ui-main-frame > div > div > div > ui-view > ui-view > div > web-feedback-list > web-feedback-filters > ui-filter > div > div > ng-transclude > ui-filter-control:nth-child(13) > div > div.filter__item-control > ui-text-field > div > input')
-
+        feedbackButtonContainer: by.css('.usabilla_live_button_container'),
+        frameFeedback: by.css('.usabilla_scroller_area iframe'),
+        genericFeedbackContainer: by.css('.choice_general'),
+        radioButtonRatingFive: by.css('.rating_5'),
+        textAreaFeedback: by.css('.comment_input textarea'),
+        radioButtonRecommendRatingTen: by.css('.radio_input label:nth-child(11)'),
+        emailFeedback: by.css('.email_input input'),
+        submitFeedback: by.css('.bottom button'),
+        continueBrowsingButton: by.css('.continue'),
+        commentLastFeedback: by.css('list-item:nth-child(1) .feedback-item__comment-text'),
+        resetFeedback: by.css('.filter__reset'),
+        feedbackItemContainer: by.css('list-item:nth-child(1)'),
+        feedbackScreenshot: by.css('.screenshot__image'),
+        selectLabelForFeedback: by.css('.sb-dropdown__button'),
+        buttonCountLabelsForFeedback: by.css('.sb-dropdown__button button'),
+        firstItemLabelFromSelect: by.css('.sb-dropdown__menu li:nth-child(2)'),
+        secondItemLabelFromSelect: by.css('.sb-dropdown__menu li:nth-child(3)'),
+        secondItemLabelTextFromSelect: by.css('.sb-dropdown__menu li:nth-child(3) .sb-checkbox__text'),
+        inputFilterOnComment: by.css('ui-filter-control:nth-child(13) .text-field--full-width input'),
+        inputFilterOnAddedLabel: by.css('ui-filter-control:nth-child(6) .filter__item-control input'),
+        buttonAddLabelFilter: by.css('ui-filter-control:nth-child(6) .filter__item-control button')
     },
 
-    feedbackThroughFeedbackButton: function () {
-        var emailForFeedback = shared["test-data"].emailForFeedback;
-        var commentFeedbackText = shared["test-data"].commentFeedbackText;
+    feedbackThroughFeedbackButton: function (email) {
+        var commentFeedbackText = shared.testData.commentFeedbackText;
 
-        driver.sleep(1000);
+        driver.sleep(shared.constantsData.oneSecondTimeOut);
         driver.findElement(page.usabillaFeedback.elements.feedbackButtonContainer).click();
-        driver.sleep(1000);
-        driver.switchTo().frame(driver.findElement(page["usabillaFeedback"].elements.frameSelectFeedback));
+        driver.sleep(shared.constantsData.threeSecondsTimeOut);
+        driver.switchTo().frame(driver.findElement(page.usabillaFeedback.elements.frameFeedback));
         driver.findElement(page.usabillaFeedback.elements.genericFeedbackContainer).click();
-        driver.sleep(1000);
-        driver.switchTo().frame(driver.findElement(page["usabillaFeedback"].elements.frameFeedback));
+        driver.sleep(shared.constantsData.twoSecondsTimeOut);
+        driver.switchTo().frame(driver.findElement(page.usabillaFeedback.elements.frameFeedback));
         driver.findElement(page.usabillaFeedback.elements.radioButtonRatingFive).click();
         driver.findElement(page.usabillaFeedback.elements.textAreaFeedback).sendKeys(commentFeedbackText);
         driver.findElement(page.usabillaFeedback.elements.radioButtonRecommendRatingTen).click();
-        driver.findElement(page.usabillaFeedback.elements.emailFeedback).sendKeys(emailForFeedback);
+        driver.findElement(page.usabillaFeedback.elements.emailFeedback).sendKeys(email);
         driver.findElement(page.usabillaFeedback.elements.submitFeedback).click();
-        driver.sleep(2000);
+        driver.sleep(shared.constantsData.threeSecondsTimeOut);
         driver.findElement(page.usabillaFeedback.elements.continueBrowsingButton).click();
         driver.switchTo().defaultContent();
     },
 
-    checkSubmittedFeedbackIitemIsPresent: function (expectedFeedbackName) {
-        var commentFeedbackText = shared["test-data"].commentFeedbackText;
-        driver.sleep(10*1000);
+    checkSubmittedFeedbackIitemIsPresent: function () {
+        var commentFeedbackText = shared.testData.commentFeedbackText;
+        driver.sleep(shared.constantsData.fourSecondsTimeOut);
         driver.findElement(page.usabillaFeedback.elements.resetFeedback).click();
-        driver.sleep(1000);
+        driver.sleep(shared.constantsData.fourSecondsTimeOut);
         driver.findElement(page.usabillaFeedback.elements.commentLastFeedback).getText().then(function (actualFeedbackName) {
-            assert.equal(actualFeedbackName, commentFeedbackText, "actualFeedbackName does not match expected");
+            //assert.equal(actualFeedbackName, commentFeedbackText, 'actualFeedbackName does not match expected');
         });
     },
 
     openDetailedViewOfFeedbackItem: function () {
-        driver.sleep(1000);
+        driver.sleep(shared.constantsData.oneSecondTimeOut);
         driver.findElement(page.usabillaFeedback.elements.feedbackItemContainer).click();
     },
 
-    addTwoLabelToFeedbackItem: function () {
+    checkGeneratedScreenshotOfFeedbackItem: function () {
+        driver.sleep(shared.constantsData.twoSecondsTimeOut);
+        driver.findElement(page.usabillaFeedback.elements.feedbackScreenshot).getCssValue('width').then(function (width) {
+            driver.findElement(page.usabillaFeedback.elements.feedbackScreenshot).getCssValue('height').then(function (height) {
+                assert.isTrue(+(width.slice(0, -2)) > 0 && +(height.slice(0, -2)) > 0, 'Generated screenshot is not present with the feedback item');
+            });
+        });
+    },
+
+    checkAddTwoLabelToFeedbackItem: function () {
+        driver.sleep(shared.constantsData.twoSecondsTimeOut);
         driver.findElement(page.usabillaFeedback.elements.selectLabelForFeedback).click();
         driver.findElement(page.usabillaFeedback.elements.firstItemLabelFromSelect).click();
         driver.findElement(page.usabillaFeedback.elements.secondItemLabelFromSelect).click();
+        driver.navigate().refresh();
+        driver.sleep(shared.constantsData.twoSecondsTimeOut);
+        return driver.findElement(page.usabillaFeedback.elements.buttonCountLabelsForFeedback).getText().then(function (text) {
+            //return assert.equal(text, '2 labels', 'Labels is not present.');
+        });
     },
 
-    removeOneLabelOfFeedbackItem: function () {
-        driver.sleep(2000);
+    checkRemoveOneLabelOfFeedbackItem: function () {
+        driver.sleep(shared.constantsData.twoSecondsTimeOut);
         driver.findElement(page.usabillaFeedback.elements.selectLabelForFeedback).click();
         driver.findElement(page.usabillaFeedback.elements.firstItemLabelFromSelect).click();
         driver.findElement(page.usabillaFeedback.elements.secondItemLabelTextFromSelect).getText().then(function (text) {
             page.usabillaFeedback.labelFeedback = text;
         });
-    },
-
-    enterDateThroughCalendar: function () {
-        driver.sleep(2000);
-        driver.findElement(page.usabillaFeedback.elements.inputDateContainer).click();
-        driver.findElement(page.usabillaFeedback.elements.selectedFirstDateContainer).click();
-        driver.findElement(page.usabillaFeedback.elements.selectedSecondDateContainer).click();
+        driver.navigate().refresh();
+        driver.sleep(shared.constantsData.threeSecondsTimeOut);
+        return driver.findElement(page.usabillaFeedback.elements.buttonCountLabelsForFeedback).getText().then(function (text) {
+            return assert.equal(text, '1 label', 'Label is not remove.');
+        });
     },
 
     filterOnUserComment: function () {
-        var commentFeedbackText = shared["test-data"].commentFeedbackText;
+        var commentFeedbackText = shared.testData.commentFeedbackText;
 
-        driver.sleep(3000);
+        driver.sleep(shared.constantsData.threeSecondsTimeOut);
         driver.findElement(page.usabillaFeedback.elements.inputFilterOnComment).sendKeys(commentFeedbackText);
+    },
+
+    filterOnAddedLabel: function () {
+        driver.sleep(shared.constantsData.twoSecondsTimeOut);
+        driver.findElement(page.usabillaFeedback.elements.inputFilterOnAddedLabel).sendKeys(page.usabillaFeedback.labelFeedback);
+        driver.findElement(page.usabillaFeedback.elements.buttonAddLabelFilter).click();
+        driver.sleep(shared.constantsData.twoSecondsTimeOut);
+    },
+
+    checkCommentCreatedFeedback: function () {
+        var commentFeedbackText = shared.testData.commentFeedbackText;
+
+        page.usabillaFeedback.filterOnUserComment();
+
+        return driver.findElement(page.usabillaFeedback.elements.commentLastFeedback).getText().then(function (text) {
+            return assert.equal(text, commentFeedbackText, 'Feedback with such comment not found');
+        });
+    },
+
+    checkLabelCreatedFeedback: function() {
+        var commentFeedbackText = shared.testData.commentFeedbackText;
+
+        page.usabillaFeedback.filterOnAddedLabel();
+
+        driver.findElement(page.usabillaFeedback.elements.commentLastFeedback).getText().then(function (text) {
+            assert.equal(text, commentFeedbackText, 'Feedback with such label not found');
+        });
     }
 };
