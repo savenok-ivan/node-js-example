@@ -10,4 +10,4 @@ Feature: Test automation scenarios of Usabilla
     And Turn on full-page screenshot generation for the newly created button.
     And Set up Auto labeling for keyword "test keyword contains" with the label "testing contains". Set operator to "CONTAIN".
     And Save the button.
-    #And Provide feedback through the feedback button and its form which were created (email: "alexey.bazhin.jazzteam@gmail.com").
+    And Provide feedback through the feedback button and its form which were created (email: "alexey.bazhin.jazzteam@gmail.com").
