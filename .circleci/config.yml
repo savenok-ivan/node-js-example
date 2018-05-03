@@ -55,17 +55,5 @@ jobs:
           name: run tests
           command: node index.js
           
-      - run: 
-          name: kill all docker images
-          command: docker kill $(docker ps -a -q) 
-          
-      - run: 
-          name: remove all unused networks
-          command: docker network prune
-          
-      - run: 
-          name: removes the grid network
-          command: docker network rm grid
-          
 
 
