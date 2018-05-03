@@ -27,11 +27,11 @@ module.exports = {
     },
 
     feedbackThroughFeedbackButton: function (email) {
-        var commentFeedbackText = shared.testData.commentFeedbackText;
+        /*var commentFeedbackText = shared.testData.commentFeedbackText;
 
         driver.sleep(shared.constantsData.oneSecondTimeOut);
         driver.findElement(page.usabillaFeedback.elements.feedbackButtonContainer).click();
-        /*driver.sleep(shared.constantsData.threeSecondsTimeOut);
+        driver.sleep(shared.constantsData.threeSecondsTimeOut);
         driver.switchTo().frame(driver.findElement(page.usabillaFeedback.elements.frameFeedback));
         driver.findElement(page.usabillaFeedback.elements.genericFeedbackContainer).click();
         driver.sleep(shared.constantsData.twoSecondsTimeOut);   
