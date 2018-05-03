@@ -27,7 +27,7 @@ var config = {
     pageObjects: './page-objects',
     sharedObjects: './shared-objects',
     reports: './reports',
-    browser: 'firefox',
+    browser: 'chrome',
     timeout: 15000
 };
 
