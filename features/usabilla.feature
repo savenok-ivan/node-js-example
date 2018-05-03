@@ -21,8 +21,7 @@ Feature: Test automation scenarios of Usabilla
     Then Confirm that the newly submitted feedback item is present.
     When Open the detailed view of the feedback item.
     Then Check if the generated screenshot is present with the feedback item.
-    When Manually add two labels to feedback item. Refresh page to see that label is present.
-    And Remove one label from the same feedback item. Refresh page to see that label is removed.
+    When Manually add label to feedback item. Refresh page to see that label is present.
     Then Enter a custom date through the calendar ("https://app-staging.usabilla.com/member/#/websites/buttons/feedback/").
     And Filter on the score provided.
     And Filter on the Net Promoter Score.
