@@ -33,6 +33,7 @@ module.exports = {
         driver.findElement(page.usabillaFeedback.elements.feedbackButtonContainer).click();
         driver.sleep(shared.constantsData.threeSecondsTimeOut);
         driver.sleep(shared.constantsData.threeSecondsTimeOut);
+        driver.switchTo().defaultContent();
         driver.sleep(shared.constantsData.threeSecondsTimeOut);
         driver.switchTo().frame(driver.findElement(page.usabillaFeedback.elements.frameFeedback));
         driver.findElement(page.usabillaFeedback.elements.genericFeedbackContainer).click();
