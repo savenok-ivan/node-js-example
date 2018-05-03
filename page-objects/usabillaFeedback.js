@@ -43,8 +43,11 @@ module.exports = {
         driver.findElement(page.usabillaFeedback.elements.submitFeedback).click();
         driver.sleep(shared.constantsData.threeSecondsTimeOut);
         driver.sleep(shared.constantsData.threeSecondsTimeOut);
-        driver.findElement(page.usabillaFeedback.elements.continueBrowsingButton).click();*/
-        driver.switchTo().defaultContent();
+        driver.findElement(page.usabillaFeedback.elements.continueBrowsingButton).click();
+        driver.switchTo().defaultContent();*/
+        driver.quit();
+        console.log(' ----------- Done - Set up Auto labeling for keyword ----------- ');
+
     },
 
     checkSubmittedFeedbackIitemIsPresent: function () {
